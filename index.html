@@ -12,7 +12,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -39,23 +39,37 @@
                   src="./images/plot.jpg"
                   alt="Plot Model 1 in ECR Chennai"
                 />
-                <small>One ground Villa<br /><strong>AS IS</strong></small>
+                <div class="image_header" id="image_header">
+                  <small>One ground Villa<br /><strong>AS IS</strong></small>
+                </div>
               </div>
 
               <div class="image-item">
-                <video
-                  src="./video/Augmented reality video 1.mp4"
-                  autoplay
-                  muted
-                  loop
-                  class="ar-video"
-                ></video>
-                <small><strong>TO BE (AUGMENTED REALITY)</strong></small>
+                <div class="video-preview" id="previewWrapper">
+                  <video
+                    src="./video/AR video for vintage group - Made with Clipchamp(1)(1).mp4"
+                    autoplay
+                    muted
+                    loop
+                    class="ar-video"
+                  ></video>
+                </div>
+                <div class="image_header" id="image_header">
+                  <small><strong>TO BE (AUGMENTED REALITY)</strong></small>
+                </div>
+              </div>
+
+              <!-- Overlay container -->
+              <div class="video-overlay" id="videoOverlay">
+                <div class="video-popup" id="videoPopup">
+                  <span class="close-btn" id="closeOverlay">&times;</span>
+                  <!-- Enlarged video will be injected here -->
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- villa models -->
+          <!-- villa models
           <div class="model-box">
             <h3>Luxury Villas near ECR Road, Chennai</h3>
             <div class="image-grid">
@@ -68,17 +82,11 @@
               </div>
 
               <div class="image-item">
-                <video
-                  src="./video/Augmented reality video 2.mp4"
-                  autoplay
-                  muted
-                  loop
-                  class="ar-video"
-                ></video>
+                <video src="" autoplay muted loop class="ar-video"></video>
                 <small><strong>TO BE (AUGMENTED REALITY)</strong></small>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -333,9 +341,52 @@
           } else if (this.webkitRequestFullscreen) {
             this.webkitRequestFullscreen();
           } else if (this.msRequestFullscreen) {
-            this.msRequestFullscreen(); 
+            this.msRequestFullscreen();
           }
         });
+      });
+
+      const previewWrapper = document.getElementById("previewWrapper");
+      const videoOverlay = document.getElementById("videoOverlay");
+      const videoPopup = document.getElementById("videoPopup");
+      const closeOverlay = document.getElementById("closeOverlay");
+
+      previewWrapper.addEventListener("click", () => {
+        const existingVideo = videoPopup.querySelector("video");
+        if (existingVideo) existingVideo.remove();
+
+        const enlargedVideo = document.createElement("video");
+        enlargedVideo.src = "./video/AR video for vintage group - Made with Clipchamp(1)(1).mp4";
+        enlargedVideo.className = "enlarged-video";
+        enlargedVideo.controls = true;
+        enlargedVideo.muted = true;
+        enlargedVideo.autoplay = true;
+        enlargedVideo.loop = true;
+
+        videoPopup.appendChild(enlargedVideo);
+        videoOverlay.style.display = "flex";
+      });
+
+      // close overlay on button click
+      closeOverlay.addEventListener("click", () => {
+        const video = videoPopup.querySelector("video");
+        if (video) {
+          video.pause();
+          video.remove();
+        }
+        videoOverlay.style.display = "none";
+      });
+
+      // also close overlay when clicking outside the popup
+      videoOverlay.addEventListener("click", (e) => {
+        if (e.target === videoOverlay) {
+          const video = videoPopup.querySelector("video");
+          if (video) {
+            video.pause();
+            video.remove();
+          }
+          videoOverlay.style.display = "none";
+        }
       });
     </script>
   </body>
