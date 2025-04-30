@@ -43,7 +43,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow: hidden;
   }
 
   .section {
@@ -321,6 +321,12 @@
 
   /* Responsive Design for mobile screen , tablet later it will update*/
   @media (max-width: 768px) {
+    body {
+        overflow: auto;
+      }
+      .main-content {
+        overflow: auto;
+      }
     .model-box {
       flex: 1 1 100%;
     }
@@ -351,6 +357,12 @@
   }
 
   @media (max-width: 480px) {
+    body {
+        overflow: auto;
+      }
+      .main-content {
+        overflow: auto;
+      }
     .welcome-heading {
       font-size: 18px;
     }
