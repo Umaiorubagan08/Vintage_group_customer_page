@@ -1,0 +1,377 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    
+  }
+
+  body {
+    background-color: #f3f4f6;
+    color: #111;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .topbar {
+    background: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+  }
+
+  .logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .welcome-heading {
+    text-align: center;
+    font-size: 15px;
+    margin: 5px 0;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  .section {
+    padding: 10px 15px;
+  }
+
+  .section h2 {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  .section h2:hover {
+    color: darkcyan;
+  }
+
+  /* Enhanced Modelling Section */
+  #modelling {
+    width: 100%;
+  }
+
+  #modelling h2 {
+    position: relative;
+    top: -15px;
+  }
+
+  .model-boxes {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .model-box {
+    position: relative;
+    top: -20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1 1 45%;
+    min-width: 280px;
+    min-height: 300px; 
+    display: flex;
+    flex-direction: column;
+  }
+
+  .model-box h3 {
+    margin: 5px 0 15px 0; 
+    font-size: 16px;
+  }
+
+  .image-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 8px;
+    flex-grow: 1;
+  }
+
+  .image-item {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-item img,
+  .ar-video {
+    width: 100%;
+    height: auto;
+    max-height: 180px; 
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    object-fit: cover; 
+  }
+
+  .image-item small {
+    display: block;
+    margin-top: 8px; 
+    font-size: 12px;
+    color: #555;
+  }
+
+  .ar-video {
+    pointer-events: none;
+  }
+
+
+
+  /* payment Section */
+
+  #payment_h2{
+    position: relative;
+    top: -40px;
+  }
+
+  .payment-table {
+    position: relative;
+    top: -46px;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    table-layout: fixed;
+  }
+  .payment-table th,
+  .payment-table td {
+    border: solid #ddd;
+    padding: 2px;
+    text-align: center;
+  }
+  .payment-table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    padding: 3px 2px;
+  }
+  .payment-table input[type="date"],
+  .payment-table input[type="number"] {
+    width: 90%;
+    padding: 1px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 11px;
+  }
+  .btn-yes,
+  .btn-no {
+    padding: 2px 5px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 11px;
+    margin: 0 1px;
+  }
+  .btn-yes {
+    background-color: #4caf50;
+    color: white;
+  }
+  .btn-no {
+    background-color: #f44336;
+    color: white;
+  }
+  .payment-table a {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 11px;
+  }
+  /* chatbot section (10%) */
+  #bot {
+    flex: 1;
+    border-top: 1px solid #ddd;
+    padding: 10px 15px;
+  }
+
+
+  #bot h2{
+    position: relative;
+    top: -70px;
+
+  }
+
+  #bot p {
+    font-size: 13px;
+    position: relative;
+    top: -82px;
+  }
+
+  /* Chatbot Icon */
+  #chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #6f42c1, #007bff);
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+
+  #chatbot-icon:hover {
+    transform: scale(1.1);
+  }
+
+  /* Chat Window */
+  #chat-window {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    height: 400px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 1000;
+    flex-direction: column;
+  }
+
+  #chat-header {
+    background: linear-gradient(to right, #007bff, #6f42c1);
+    color: white;
+    padding: 14px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+  }
+
+  #chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background: #f9f9f9;
+  }
+
+  #chat-messages div {
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 8px 10px;
+    max-width: 90%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+
+  #chat-messages div strong {
+    display: block;
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  #chat-input-area {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    gap: 8px;
+  }
+
+  #chat-input {
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  #chat-input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  #chat-input-area button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .show {
+    display: flex !important;
+  }
+
+  /* Responsive Design for mobile screen , tablet later it will update*/
+  @media (max-width: 768px) {
+    .model-box {
+      flex: 1 1 100%;
+    }
+
+    .image-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-item {
+      max-width: 100%;
+    }
+
+    .payment-table {
+      font-size: 12px;
+    }
+
+    .payment-table th,
+    .payment-table td {
+      padding: 5px;
+    }
+
+    #chat-window {
+      width: 280px;
+      height: 350px;
+      bottom: 70px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .welcome-heading {
+      font-size: 18px;
+    }
+
+    .model-box {
+      padding: 10px;
+    }
+
+    .payment-table {
+      font-size: 11px;
+    }
+
+    .btn-yes,
+    .btn-no {
+      padding: 4px 8px;
+      font-size: 11px;
+    }
+
+    #chat-window {
+      width: 90%;
+      right: 5%;
+      height: 300px;
+    }
+  }
